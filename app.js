@@ -37,3 +37,11 @@ function operate(num1, op , num2) {
         return divide(num1, num2);
     }
 }
+
+//Display 
+const displayDiv = document.querySelector('.display')
+
+const display = [1234];
+
+displayDiv.textContent = display; 
+
