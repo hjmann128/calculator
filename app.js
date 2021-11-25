@@ -41,7 +41,35 @@ function operate(num1, op , num2) {
 //Display 
 const displayDiv = document.querySelector('.display')
 
-const display = [1234];
+let display = [1234];
 
-displayDiv.textContent = display; 
+
+selectedNum = [];
+//buttons 
+const addBtn = document.querySelector('.add')
+const subBtn = document.querySelector('.subtract')
+const multiBtn = document.querySelector('.multi')
+const divideBtn = document.querySelector('.divide')
+
+const oneBtn = document.querySelectorAll('.btn')
+console.log(oneBtn)
+
+oneBtn.forEach(item => {
+    addEventListener('click', (e) => {
+        
+        selectedNum = parseInt(e.target.innerText)
+        if(typeof selectedNum === 'number' &&  !isNaN(selectedNum)) {
+        displayDiv.textContent = selectedNum
+     
+        } 
+        
+})
+})
+
+
+
+
+
+
+
 
