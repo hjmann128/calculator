@@ -51,23 +51,63 @@ const subBtn = document.querySelector('.subtract')
 const multiBtn = document.querySelector('.multi')
 const divideBtn = document.querySelector('.divide')
 
-const oneBtn = document.querySelectorAll('.btn')
-console.log(oneBtn)
 
-oneBtn.forEach(item => {
-    addEventListener('click', (e) => {
+
+const Btn = document.querySelectorAll('.btn')
+const operand = document.querySelectorAll('.operand')
+const clear = document.querySelector('.clearbtn');
+let currentNum = ''
+let previousNum = ''
+let currentOperand = ''
+
+function updateDisplay (num1) {
+ displayDiv.innerText += num1
+}
+
+function secondNumber (){
+let first = displayDiv.innerText;
+displayDiv.innerText = ''
+console.log(first)
+}
+
+function updateOperand (operand){
+    currentOperand = operand; 
+    secondNumber()
+    console.log(operand)
+}
+
+
+//Selectors and event listeners 
+
+
+
+Btn.forEach(button => {
+    button.addEventListener('click', () => {
+        if(!currentOperand){
+            currentNum = button.innerText;
+            updateDisplay(currentNum)
+            console.log(displayDiv)
+        }else {
+            previousNum = currentNum;
+            currentNum = button.innerText;
+            console.log(previousNum);
+            updateDisplay(currentNum)
+           
+        }
+       
         
-        selectedNum = parseInt(e.target.innerText)
-        if(typeof selectedNum === 'number' &&  !isNaN(selectedNum)) {
-        displayDiv.textContent = selectedNum
-     
-        } 
-        
-})
+    })
 })
 
+operand.forEach(button => {
+    button.addEventListener('click', () => {
+        updateOperand(button.innerText)
+    })
+})
 
-
+clear.addEventListener('click', () => {
+    displayDiv.innerText = '';
+})
 
 
 
